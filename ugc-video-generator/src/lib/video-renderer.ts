@@ -114,26 +114,13 @@ export async function renderVideo(
     '-i', audioPath,
   ];
 
-  let hasProdImg = false;
-  if (prodPath) {
-    args.push('-loop', '1', '-t', duration.toString(), '-i', prodPath);
-    hasProdImg = true;
-  }
-
   // Assemble filter complex
   const filterParts: string[] = [];
   // 1. Scale and center background to 9:16 vertical (720x1280)
   filterParts.push('[0:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280[bg]');
   // 2. Scale prominent GIF (centered, 380x380)
   filterParts.push('[1:v]scale=380:380:force_original_aspect_ratio=decrease[gif]');
-
-  if (hasProdImg) {
-    filterParts.push('[3:v]scale=150:150:force_original_aspect_ratio=decrease[prod]');
-    filterParts.push('[bg][gif]overlay=(W-w)/2:(H-h)/2-40:shortest=0[v1]');
-    filterParts.push('[v1][prod]overlay=40:H-h-240[v2]');
-  } else {
-    filterParts.push('[bg][gif]overlay=(W-w)/2:(H-h)/2-40:shortest=0[v2]');
-  }
+  filterParts.push('[bg][gif]overlay=(W-w)/2:(H-h)/2-40:shortest=0[v2]');
 
   // 3. Add stylish text overlays
   const textFilters: string[] = [
