@@ -1,0 +1,19 @@
+{
+  "agent-capture-bridge": {
+    "enabled": true,
+    "Stop": [
+      {
+        "type": "command",
+        "command": "node ../scripts/capture-bridge.js",
+        "timeout": 15
+      }
+    ],
+    "PostInvocation": [
+      {
+        "type": "command",
+        "command": "node ../scripts/capture-bridge.js",
+        "timeout": 15
+      }
+    ]
+  }
+}
