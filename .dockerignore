@@ -1,0 +1,9 @@
+node_modules
+ugc-video-generator/node_modules
+ugc-video-generator/.next
+.next
+.git
+.env*.local
+.env
+ugc-video-generator/public/generated-videos/*
+*.mp4
