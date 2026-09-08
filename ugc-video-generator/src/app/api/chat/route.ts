@@ -40,7 +40,7 @@ function handleConversationalMessage(message: string): string {
     lower.includes('help') ||
     lower.includes('who are you')
   ) {
-    return "I can generate short (5-10s) UGC-style marketing videos from product URLs using real assets. Just send me a product website link (like https://calai.app), and I'll extract its features, organize the marketing hooks with AI, and render a complete video with background footage, trendy text overlays, trending audio, and reaction GIFs.";
+    return "I can generate short (5-10s) UGC-style marketing videos from product URLs using real assets. Just send me a product website link (like https://calai.app), and I'll extract its features, organize the marketing hooks with AI, and render a complete video with background footage, text overlays, upbeat audio, and reaction GIFs.";
   }
 
   // General conversation fallback
@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
     logAgentEvent('stage_completed', { videoUrl: result.videoUrl });
 
     return NextResponse.json({
-      response: `I found the product "${productInfo.title}". Here's your short UGC video with trending audio, text overlay, and reaction GIF!`,
+      response: `I found the product "${productInfo.title}". Here's your short UGC video with audio, text overlay, and reaction GIF!`,
       videoUrl: result.videoUrl,
       productTitle: productInfo.title,
     });
