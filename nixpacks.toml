@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "ffmpeg"]
+
+[phases.install]
+cmds = ["npm --prefix ugc-video-generator ci"]
+
+[phases.build]
+cmds = ["npm --prefix ugc-video-generator run build"]
+
+[start]
+cmd = "npm --prefix ugc-video-generator run start"

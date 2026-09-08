@@ -1,0 +1,10 @@
+{
+  "name": "ugc-video-generator",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix ugc-video-generator run dev",
+    "build": "npm --prefix ugc-video-generator run build",
+    "start": "npm --prefix ugc-video-generator run start"
+  }
+}
