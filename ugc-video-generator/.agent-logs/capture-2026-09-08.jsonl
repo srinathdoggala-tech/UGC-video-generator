@@ -1,7 +1,7 @@
-{"timestamp":"2026-09-08T10:49:16.942Z","event":"test","data":{"message":"Capture system initialized"}}
-{"timestamp":"2026-09-08T10:49:16.973Z","event":"test","data":{"message":"Agent capture setup verified"}}
-{"timestamp":"2026-09-08T15:20:25.830Z","event":"test","data":{"message":"Capture system initialized"}}
-{"timestamp":"2026-09-08T15:20:25.837Z","event":"test","data":{"message":"Agent capture setup verified"}}
+{"timestamp":"2026-09-08T11:04:58.550Z","event":"test","data":{"message":"Capture system initialized"}}
+{"timestamp":"2026-09-08T11:04:58.582Z","event":"test","data":{"message":"Agent capture setup verified"}}
+{"timestamp":"2026-09-08T12:09:39.711Z","event":"test","data":{"message":"Capture system initialized"}}
+{"timestamp":"2026-09-08T12:09:39.716Z","event":"test","data":{"message":"Agent capture setup verified"}}
 {"timestamp":"2026-09-08T15:27:47.351Z","event":"chat_conversation","data":{"message":"hi","response":"Hey! Send me a product URL and I'll create a short UGC-style marketing video for it."}}
 {"timestamp":"2026-09-08T15:28:02.334Z","event":"chat_conversation","data":{"message":"what can you do?","response":"I can generate short (5-10s) UGC-style marketing videos from product URLs using real assets. Just send me a product website link (like https://calai.app), and I'll extract its features, organize the marketing hooks with AI, and render a complete video with background footage, trendy text overlays, trending audio, and reaction GIFs."}}
 {"timestamp":"2026-09-08T15:28:12.358Z","event":"stage_extracting_product","data":{"url":"https://calai.app"}}
@@ -29,8 +29,6 @@
 {"timestamp":"2026-09-08T15:31:13.382Z","event":"stage_rendering","data":{"duration":8}}
 {"timestamp":"2026-09-08T15:31:29.284Z","event":"stage_verifying_output","data":{"videoUrl":"/api/video/ugc-1788881473391-bhik62.mp4","localPath":"C:\\Users\\dogga\\OneDrive\\Desktop\\Desktop\\UGC video generator\\ugc-video-generator\\public\\generated-videos\\ugc-1788881473391-bhik62.mp4"}}
 {"timestamp":"2026-09-08T15:31:29.287Z","event":"stage_completed","data":{"videoUrl":"/api/video/ugc-1788881473391-bhik62.mp4"}}
-{"timestamp":"2026-09-08T15:32:22.225Z","event":"test","data":{"message":"Capture system initialized"}}
-{"timestamp":"2026-09-08T15:32:22.242Z","event":"test","data":{"message":"Agent capture setup verified"}}
 {"timestamp":"2026-09-08T15:38:17.611Z","event":"chat_conversation","data":{"message":"hi","response":"Hey! Send me a product URL and I'll create a short UGC-style marketing video for it."}}
 {"timestamp":"2026-09-08T15:38:23.659Z","event":"chat_conversation","data":{"message":"what can you do?","response":"I can generate short (5-10s) UGC-style marketing videos from product URLs using real assets. Just send me a product website link (like https://calai.app), and I'll extract its features, organize the marketing hooks with AI, and render a complete video with background footage, trendy text overlays, trending audio, and reaction GIFs."}}
 {"timestamp":"2026-09-08T15:38:30.861Z","event":"stage_extracting_product","data":{"url":"https://calai.app"}}
@@ -58,5 +56,3 @@
 {"timestamp":"2026-09-08T15:50:25.350Z","event":"stage_rendering","data":{"duration":8}}
 {"timestamp":"2026-09-08T15:50:35.294Z","event":"stage_verifying_output","data":{"videoUrl":"/api/video/ugc-1788882625358-t9wntr.mp4","localPath":"C:\\Users\\dogga\\OneDrive\\Desktop\\Desktop\\UGC video generator\\ugc-video-generator\\public\\generated-videos\\ugc-1788882625358-t9wntr.mp4"}}
 {"timestamp":"2026-09-08T15:50:35.297Z","event":"stage_completed","data":{"videoUrl":"/api/video/ugc-1788882625358-t9wntr.mp4"}}
-{"timestamp":"2026-09-08T15:52:07.039Z","event":"test","data":{"message":"Capture system initialized"}}
-{"timestamp":"2026-09-08T15:52:07.062Z","event":"test","data":{"message":"Agent capture setup verified"}}

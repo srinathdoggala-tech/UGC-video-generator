@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ugc-video-generator
+    env: docker
+    dockerfilePath: ./ugc-video-generator/Dockerfile
+    dockerContext: ./ugc-video-generator
+    plan: standard
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
