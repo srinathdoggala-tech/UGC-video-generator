@@ -24,27 +24,58 @@ function extractProductUrl(text: string): string | null {
 }
 
 function handleConversationalMessage(message: string): string {
-  const lower = message.trim().toLowerCase();
+  const text = message.trim().toLowerCase();
+  // Normalize common slang/abbreviations
+  const normalized = text
+    .replace(/\bwat\b/g, 'what')
+    .replace(/\bu\b/g, 'you')
+    .replace(/\bur\b/g, 'your')
+    .replace(/\bpls\b/g, 'please')
+    .replace(/[?!.,;:]+$/g, '');
 
-  // Test A: Greetings
-  const greetings = ['hi', 'hello', 'hey', 'greetings', 'sup', 'yo', 'good morning', 'good afternoon', 'good evening'];
-  if (greetings.some(g => lower === g || lower.startsWith(g + ' ') || lower.startsWith(g + '!'))) {
-    return "Send any product URL to generate a short-form UGC edit.";
+  // 1. GREETING Intent
+  const greetingPatterns = [
+    /^(hi|hello|hey|heyy+|howdy|sup|yo|greetings)\b/i,
+    /^(good\s+(morning|afternoon|evening|day))\b/i,
+    /^(hey\s+there|hi\s+there|hello\s+there)\b/i,
+  ];
+  if (greetingPatterns.some(pattern => pattern.test(normalized))) {
+    return "Hey — I'm UGC / Studio. Send me a product URL and I'll turn it into a short-form UGC edit.";
   }
 
-  // Test B: Capabilities
-  if (
-    lower.includes('what can you do') ||
-    lower.includes('what do you do') ||
-    lower.includes('how does this work') ||
-    lower.includes('help') ||
-    lower.includes('who are you')
-  ) {
-    return "Provide a product link (e.g. https://resend.com). The engine extracts core features, structures narrative hooks, pairs matched visuals and audio, and compiles a 9:16 short-form video edit.";
+  // 2. CAPABILITY Intent (handles "what can you do", "wat can you do for me", "how does this work", etc.)
+  const capabilityPatterns = [
+    /what\s+can\s+you\s+do/i,
+    /what\s+do\s+you\s+(do|make|build|create)/i,
+    /how\s+does\s+(this|it)\s+work/i,
+    /tell\s+me\s+what\s+you\s+can\s+do/i,
+    /what\s+is\s+this/i,
+    /who\s+are\s+you/i,
+    /^(help|capabilities|features|instructions)\b/i,
+  ];
+  if (capabilityPatterns.some(pattern => pattern.test(normalized))) {
+    return "I turn product pages into short-form UGC edits. Send me a product URL and I'll pull the useful product context, select matching creative assets, and compose a finished 9:16 video.";
   }
 
-  // General conversation fallback
-  return "Send a product URL to generate a short-form video edit.";
+  // 3. NON-URL VIDEO GENERATION REQUEST (e.g. "make me a video", "create a video")
+  const creationWithoutUrlPatterns = [
+    /(make|create|generate|build|render)\s+(me\s+)?(a\s+)?(video|edit|ugc)/i,
+    /^(video|create\s+video|generate\s+video|make\s+video)$/i,
+  ];
+  if (creationWithoutUrlPatterns.some(pattern => pattern.test(normalized))) {
+    return "I'd be happy to create a video — please share a product URL (e.g. https://resend.com or https://linear.app) to get started.";
+  }
+
+  // 4. GRATITUDE / ACKNOWLEDGEMENT Intent
+  const gratitudePatterns = [
+    /^(thanks|thank\s+you|thx|awesome|cool|great|nice|perfect|got\s+it|ok|okay)\b/i,
+  ];
+  if (gratitudePatterns.some(pattern => pattern.test(normalized))) {
+    return "Glad to help! Drop in any product URL whenever you're ready to create an edit.";
+  }
+
+  // 5. GENERAL_CONVERSATION Fallback
+  return "I'm ready to create your short-form UGC edit. Send over any product URL to get started.";
 }
 
 export async function POST(request: NextRequest) {
