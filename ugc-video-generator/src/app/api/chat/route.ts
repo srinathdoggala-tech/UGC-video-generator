@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
     logAgentEvent('stage_completed', { videoUrl: result.videoUrl });
 
     return NextResponse.json({
-      response: `I found the product "${productInfo.title}". Here's your short UGC video with audio, text overlay, and reaction GIF!`,
+      response: `Generated 9:16 video edit for "${productInfo.title}".`,
       videoUrl: result.videoUrl,
       productTitle: productInfo.title,
     });
