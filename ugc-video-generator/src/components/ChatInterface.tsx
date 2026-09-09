@@ -174,7 +174,8 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
         <div className="flex-1 flex flex-col items-center justify-center px-6 sm:px-12 text-center relative animate-message">
           <div className="w-full max-w-2xl mx-auto flex flex-col items-center">
             {/* Micro Category Identifier */}
-            <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#242427] bg-[#141417]/60">
+            <div className="mb-5 inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-[#242427] bg-[#141417]/80">
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#8e8d8a]">
                 01 / Product Input
               </span>
@@ -263,7 +264,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                 /* Studio Deliverable Row */
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#8e8d8a] bg-[#141417] px-2 py-0.5 rounded border border-[#242427]">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#8e8d8a] bg-[#141417] px-2.5 py-0.5 rounded border border-[#242427]">
                       {message.videoUrl ? 'Edit Ready' : 'Studio'}
                     </span>
                   </div>
@@ -277,6 +278,8 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                     <div className="mt-6 flex flex-col items-center sm:items-start space-y-3">
                       {/* Technical Metadata Bar */}
                       <div className="flex items-center gap-3 text-[11px] font-mono text-[#5e5d5a]">
+                        <span className="text-[#8e8d8a] font-semibold">DELIVERABLE</span>
+                        <span>•</span>
                         <span>09:16</span>
                         <span>•</span>
                         <span>08 SEC</span>
