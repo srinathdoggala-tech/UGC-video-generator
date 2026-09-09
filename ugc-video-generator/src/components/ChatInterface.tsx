@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { ChatMessage } from '@/lib/types';
+import { BrandLogo } from '@/components/BrandLogo';
 
 interface ChatInterfaceProps {
   initialMessages?: ChatMessage[];
@@ -134,26 +135,17 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
 
   return (
     <div className="flex flex-col h-full w-full bg-[#0c0c0e] text-[#ededec] overflow-hidden">
-      {/* Editorial Header */}
-      <header className="px-6 sm:px-10 py-5 border-b border-[#242427]/80 flex items-center justify-between z-20 bg-[#0c0c0e]/95 backdrop-blur-md flex-shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="w-5 h-5 rounded border border-[#36363a] flex items-center justify-center text-[#ededec]">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 8V4h4" />
-              <path d="M20 8V4h-4" />
-              <path d="M4 16v4h4" />
-              <path d="M20 16v4h-4" />
-            </svg>
-          </div>
-          <span className="text-[12px] font-mono font-semibold tracking-widest text-[#ededec] uppercase">
-            UGC / Studio
-          </span>
+      {/* Editorial Header with Exact Brand Identity */}
+      <header className="px-6 sm:px-10 py-4 sm:py-5 border-b border-[#242427]/80 flex items-center justify-between z-20 bg-[#0c0c0e]/95 backdrop-blur-md flex-shrink-0">
+        <div className="flex items-center">
+          <BrandLogo size="sm" className="sm:hidden" />
+          <BrandLogo size="md" className="hidden sm:inline-flex" />
         </div>
 
         <div className="flex items-center gap-4">
           {isLanding ? (
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
               <span className="text-[11px] font-mono tracking-widest text-[#8e8d8a] uppercase">
                 Ready
               </span>
