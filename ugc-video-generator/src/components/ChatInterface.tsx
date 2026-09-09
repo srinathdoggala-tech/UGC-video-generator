@@ -138,8 +138,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
       {/* Editorial Header with Exact Brand Identity */}
       <header className="px-6 sm:px-10 py-4 sm:py-5 border-b border-[#242427]/80 flex items-center justify-between z-20 bg-[#0c0c0e]/95 backdrop-blur-md flex-shrink-0">
         <div className="flex items-center">
-          <BrandLogo size="sm" className="sm:hidden" />
-          <BrandLogo size="md" className="hidden sm:inline-flex" />
+          <BrandLogo />
         </div>
 
         <div className="flex items-center gap-4">
