@@ -29,7 +29,7 @@ function handleConversationalMessage(message: string): string {
   // Test A: Greetings
   const greetings = ['hi', 'hello', 'hey', 'greetings', 'sup', 'yo', 'good morning', 'good afternoon', 'good evening'];
   if (greetings.some(g => lower === g || lower.startsWith(g + ' ') || lower.startsWith(g + '!'))) {
-    return "Hey! Send me a product URL and I'll create a short UGC-style marketing video for it.";
+    return "Send any product URL to generate a short-form UGC edit.";
   }
 
   // Test B: Capabilities
@@ -40,11 +40,11 @@ function handleConversationalMessage(message: string): string {
     lower.includes('help') ||
     lower.includes('who are you')
   ) {
-    return "I can generate short (5-10s) UGC-style marketing videos from product URLs using real assets. Just send me a product website link (like https://calai.app), and I'll extract its features, organize the marketing hooks with AI, and render a complete video with background footage, text overlays, upbeat audio, and reaction GIFs.";
+    return "Provide a product link (e.g. https://resend.com). The engine extracts core features, structures narrative hooks, pairs matched visuals and audio, and compiles a 9:16 short-form video edit.";
   }
 
   // General conversation fallback
-  return "I'm your UGC video generator assistant! Send me any product URL and I'll build a short marketing video for it.";
+  return "Send a product URL to generate a short-form video edit.";
 }
 
 export async function POST(request: NextRequest) {
