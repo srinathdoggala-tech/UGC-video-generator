@@ -21,7 +21,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading, loadingStep]);
 
-  // Dynamic creation sequence progression
+  // Dynamic 4-stage creation sequence
   useEffect(() => {
     if (!isLoading) {
       setLoadingStep(1);
@@ -134,8 +134,8 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
 
   return (
     <div className="flex flex-col h-full w-full bg-[#0c0c0e] text-[#ededec] overflow-hidden">
-      {/* Pinned Top Navigation */}
-      <header className="px-6 sm:px-8 py-5 border-b border-[#242427]/80 flex items-center justify-between z-20 bg-[#0c0c0e]/95 backdrop-blur-md flex-shrink-0">
+      {/* Editorial Header */}
+      <header className="px-6 sm:px-10 py-5 border-b border-[#242427]/80 flex items-center justify-between z-20 bg-[#0c0c0e]/95 backdrop-blur-md flex-shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-5 h-5 rounded border border-[#36363a] flex items-center justify-center text-[#ededec]">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -150,15 +150,18 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
           </span>
         </div>
 
-        <div>
+        <div className="flex items-center gap-4">
           {isLanding ? (
-            <span className="text-[11px] font-mono tracking-widest text-[#5e5d5a] uppercase">
-              01 / Create
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span className="text-[11px] font-mono tracking-widest text-[#8e8d8a] uppercase">
+                Ready
+              </span>
+            </div>
           ) : (
             <button
               onClick={handleReset}
-              className="text-[11px] font-mono tracking-wider text-[#8e8d8a] hover:text-[#ededec] px-2.5 py-1 rounded border border-[#242427] hover:border-[#36363a] bg-[#141417] transition-colors uppercase"
+              className="text-[11px] font-mono tracking-wider text-[#8e8d8a] hover:text-[#ededec] px-3 py-1.5 rounded-lg border border-[#242427] hover:border-[#36363a] bg-[#141417] transition-all hover:bg-[#1a1a1f] uppercase"
             >
               + New Edit
             </button>
@@ -170,16 +173,23 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
       {isLanding ? (
         <div className="flex-1 flex flex-col items-center justify-center px-6 sm:px-12 text-center relative animate-message">
           <div className="w-full max-w-2xl mx-auto flex flex-col items-center">
-            {/* Editorial Headline */}
-            <h1 className="text-4xl sm:text-6xl md:text-[64px] font-bold tracking-[-0.04em] leading-[1.02] text-[#ededec] uppercase select-none">
+            {/* Micro Category Identifier */}
+            <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#242427] bg-[#141417]/60">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#8e8d8a]">
+                01 / Product Input
+              </span>
+            </div>
+
+            {/* High-Contrast Editorial Headline */}
+            <h1 className="text-4xl sm:text-6xl md:text-[72px] font-extrabold tracking-[-0.04em] leading-[0.98] text-[#ededec] uppercase select-none">
               Turn products<br />
               into short-form<br />
-              <span className="text-[#8e8d8a]">culture.</span>
+              <span className="text-[#5e5d5a]">culture.</span>
             </h1>
 
             {/* Subtext */}
-            <p className="text-sm sm:text-base text-[#8e8d8a] max-w-md mx-auto leading-relaxed mt-5">
-              Paste a product URL. Get a ready-to-use 9:16 UGC video edit with background footage, typography, audio, and reaction elements.
+            <p className="text-sm sm:text-base text-[#8e8d8a] max-w-md mx-auto leading-relaxed mt-6">
+              Paste a product URL. We turn its identity into a short-form UGC edit with background footage, typography, audio, and reaction elements.
             </p>
 
             {/* Hero Input Instrument */}
@@ -187,7 +197,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
               onSubmit={handleLandingSubmit}
               className="w-full max-w-xl mt-8"
             >
-              <div className="relative flex items-center bg-[#141417] border border-[#2c2c30] hover:border-[#3d3d42] focus-within:border-[#ededec] rounded-2xl p-2 transition-all shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+              <div className="relative flex items-center bg-[#141417] border border-[#2c2c30] hover:border-[#3d3d42] focus-within:border-[#ededec] rounded-2xl p-2 transition-all shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
                 <input
                   ref={inputRef}
                   type="text"
@@ -201,10 +211,11 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                 <button
                   type="submit"
                   disabled={!input.trim() || isLoading}
-                  aria-label="Generate video"
-                  className="w-10 h-10 rounded-xl bg-[#ededec] text-[#0c0c0e] flex items-center justify-center hover:bg-white disabled:opacity-20 disabled:cursor-not-allowed transition-all active:scale-95 flex-shrink-0 font-medium"
+                  aria-label="Create edit"
+                  className="px-4 py-2.5 rounded-xl bg-[#ededec] text-[#0c0c0e] flex items-center gap-2 hover:bg-white disabled:opacity-20 disabled:cursor-not-allowed transition-all active:scale-95 flex-shrink-0 text-xs font-mono font-semibold uppercase tracking-wider"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <span>Create Edit</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
@@ -214,7 +225,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
 
             {/* Editorial References */}
             <div className="mt-6 flex items-center gap-2 text-[12px] text-[#5e5d5a] font-mono">
-              <span className="text-[#5e5d5a]">Try with:</span>
+              <span className="text-[#5e5d5a]">References:</span>
               {['calai.app', 'linear.app', 'resend.com'].map((example) => (
                 <button
                   key={example}
@@ -236,7 +247,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
               className="w-full max-w-2xl mx-auto animate-message"
             >
               {message.role === 'user' ? (
-                /* User Entry */
+                /* User Input Row */
                 <div className="border-l-2 border-[#36363a] pl-4 py-1">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-[#5e5d5a] block mb-1">
                     01 / Input
@@ -249,11 +260,11 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                   </span>
                 </div>
               ) : (
-                /* Assistant Deliverable */
+                /* Studio Deliverable Row */
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#8e8d8a] bg-[#141417] px-2 py-0.5 rounded border border-[#242427]">
-                      {message.videoUrl ? 'Your Edit' : 'Studio'}
+                      {message.videoUrl ? 'Edit Ready' : 'Studio'}
                     </span>
                   </div>
 
@@ -261,9 +272,20 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                     {renderMessageContent(message.content)}
                   </p>
 
-                  {/* Hero 9:16 Video Deliverable */}
+                  {/* 9:16 Video Hero Deliverable */}
                   {message.videoUrl && (
-                    <div className="mt-6 flex flex-col items-center sm:items-start">
+                    <div className="mt-6 flex flex-col items-center sm:items-start space-y-3">
+                      {/* Technical Metadata Bar */}
+                      <div className="flex items-center gap-3 text-[11px] font-mono text-[#5e5d5a]">
+                        <span>09:16</span>
+                        <span>•</span>
+                        <span>08 SEC</span>
+                        <span>•</span>
+                        <span>1080×1920</span>
+                        <span>•</span>
+                        <span>MP4</span>
+                      </div>
+
                       <div className="w-full max-w-[320px] aspect-[9/16] rounded-2xl overflow-hidden bg-black shadow-[0_24px_60px_rgba(0,0,0,0.7)] border border-white/10 relative">
                         <video
                           src={message.videoUrl}
@@ -279,14 +301,13 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                         download="ugc-video.mp4"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center justify-center gap-2 w-full max-w-[320px] py-3 px-5 rounded-xl bg-[#ededec] text-[#0c0c0e] hover:bg-white text-xs font-semibold uppercase tracking-wider transition-all active:scale-98 shadow-md"
+                        className="inline-flex items-center justify-center gap-2 w-full max-w-[320px] py-3.5 px-5 rounded-xl bg-[#ededec] text-[#0c0c0e] hover:bg-white text-xs font-mono font-semibold uppercase tracking-wider transition-all active:scale-98 shadow-md"
                       >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                          <polyline points="7 10 12 15 17 10" />
-                          <line x1="12" y1="15" x2="12" y2="3" />
+                        <span>Download Video</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="12" y1="5" x2="12" y2="19" />
+                          <polyline points="19 12 12 19 5 12" />
                         </svg>
-                        Download Video (.mp4)
                       </a>
                     </div>
                   )}
@@ -295,35 +316,52 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
             </div>
           ))}
 
-          {/* Creation Sequence Loading Feedback */}
+          {/* 4-Stage Creation Sequence */}
           {isLoading && (
             <div className="w-full max-w-2xl mx-auto animate-message">
               <div className="bg-[#141417] border border-[#242427] rounded-2xl p-5 space-y-3 shadow-lg">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#8e8d8a] block">
-                  Creating Your Edit
-                </span>
-                <div className="space-y-2 text-xs font-mono">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#8e8d8a] block">
+                    Creating Your Edit
+                  </span>
+                  <span className="text-[10px] font-mono text-[#5e5d5a] uppercase">
+                    Stage 0{loadingStep} / 04
+                  </span>
+                </div>
+                <div className="space-y-2.5 text-xs font-mono">
                   <div className="flex items-center justify-between text-[#ededec]">
-                    <span>01 &nbsp;Analyzing product page</span>
+                    <span className="flex items-center gap-2">
+                      <span className="text-[#5e5d5a]">01</span>
+                      <span>Analyzing product page</span>
+                    </span>
                     <span className={loadingStep >= 1 ? 'text-emerald-400 font-bold' : 'text-[#5e5d5a]'}>
                       {loadingStep > 1 ? '✓' : '●'}
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-[#ededec]">
-                    <span>02 &nbsp;Selecting creative assets</span>
-                    <span className={loadingStep >= 2 ? (loadingStep > 2 ? 'text-emerald-400 font-bold' : 'text-emerald-400') : 'text-[#5e5d5a]'}>
+                    <span className="flex items-center gap-2">
+                      <span className="text-[#5e5d5a]">02</span>
+                      <span>Selecting creative assets</span>
+                    </span>
+                    <span className={loadingStep >= 2 ? 'text-emerald-400 font-bold' : 'text-[#5e5d5a]'}>
                       {loadingStep > 2 ? '✓' : (loadingStep === 2 ? '●' : '—')}
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-[#ededec]">
-                    <span>03 &nbsp;Composing 9:16 edit</span>
-                    <span className={loadingStep >= 3 ? (loadingStep > 3 ? 'text-emerald-400 font-bold' : 'text-emerald-400') : 'text-[#5e5d5a]'}>
+                    <span className="flex items-center gap-2">
+                      <span className="text-[#5e5d5a]">03</span>
+                      <span>Composing 9:16 edit</span>
+                    </span>
+                    <span className={loadingStep >= 3 ? 'text-emerald-400 font-bold' : 'text-[#5e5d5a]'}>
                       {loadingStep > 3 ? '✓' : (loadingStep === 3 ? '●' : '—')}
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-[#ededec]">
-                    <span>04 &nbsp;Finalizing render</span>
-                    <span className={loadingStep >= 4 ? 'text-emerald-400' : 'text-[#5e5d5a]'}>
+                    <span className="flex items-center gap-2">
+                      <span className="text-[#5e5d5a]">04</span>
+                      <span>Finalizing render</span>
+                    </span>
+                    <span className={loadingStep >= 4 ? 'text-emerald-400 font-bold' : 'text-[#5e5d5a]'}>
                       {loadingStep === 4 ? '●' : '—'}
                     </span>
                   </div>
@@ -346,7 +384,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
         </div>
       )}
 
-      {/* Persistent Bottom Bar in Active Mode */}
+      {/* Persistent Bottom Input Bar in Active Studio Mode */}
       {!isLanding && (
         <footer className="p-4 sm:p-6 border-t border-[#242427]/80 bg-[#0c0c0e]/95 backdrop-blur-md flex-shrink-0">
           <form
@@ -359,7 +397,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Paste another product URL or ask a question..."
+                placeholder="Paste another product URL or message..."
                 className="flex-1 px-3.5 py-2 bg-transparent text-[#ededec] placeholder-[#5e5d5a] text-sm focus:outline-none"
                 disabled={isLoading}
               />
@@ -367,9 +405,10 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                 type="submit"
                 disabled={!input.trim() || isLoading}
                 aria-label="Send"
-                className="w-9 h-9 rounded-xl bg-[#ededec] text-[#0c0c0e] flex items-center justify-center hover:bg-white disabled:opacity-20 disabled:cursor-not-allowed transition-all active:scale-95 flex-shrink-0 font-medium"
+                className="px-3.5 py-2 rounded-xl bg-[#ededec] text-[#0c0c0e] flex items-center gap-1.5 hover:bg-white disabled:opacity-20 disabled:cursor-not-allowed transition-all active:scale-95 flex-shrink-0 text-xs font-mono font-medium uppercase"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <span>Send</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
