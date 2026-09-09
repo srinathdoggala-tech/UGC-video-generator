@@ -25,3 +25,18 @@
 {"timestamp":"2026-09-09T06:36:59.400Z","event":"chat_conversation","data":{"message":"what can you do","response":"I can generate short (5-10s) UGC-style marketing videos from product URLs using real assets. Just send me a product website link (like https://calai.app), and I'll extract its features, organize the marketing hooks with AI, and render a complete video with background footage, text overlays, upbeat audio, and reaction GIFs."}}
 {"timestamp":"2026-09-09T06:37:20.158Z","event":"chat_conversation","data":{"message":"hi","response":"Hey! Send me a product URL and I'll create a short UGC-style marketing video for it."}}
 {"timestamp":"2026-09-09T06:38:31.766Z","event":"chat_conversation","data":{"message":"hi","response":"Hey! Send me a product URL and I'll create a short UGC-style marketing video for it."}}
+{"timestamp":"2026-09-09T06:53:24Z","session_id":"5b2a8dd5-7dc2-45e8-bde8-60914b5f13dc","model":"Gemini 3.7 Flash (Medium)","prompt":"@[TerminalName: powershell, ProcessId: 19300] fix this issue","response":"The background Next.js development server that was holding port `3000` has been terminated. \n\nPort `3000` is now completely free. You can run:\n\n```powershell\nnpm run dev\n```\n\nin your terminal."}
+{"timestamp":"2026-09-09T06:56:02.980Z","event":"chat_conversation","data":{"message":"hi","response":"Hey! Send me a product URL and I'll create a short UGC-style marketing video for it."}}
+{"timestamp":"2026-09-09T06:56:10.620Z","event":"chat_conversation","data":{"message":"what you cna do","response":"I'm your UGC video generator assistant! Send me any product URL and I'll build a short marketing video for it."}}
+{"timestamp":"2026-09-09T06:56:55.792Z","event":"stage_extracting_product","data":{"url":"https://www.calai.app/"}}
+{"timestamp":"2026-09-09T06:56:56.723Z","event":"stage_organizing_assets","data":{"productTitle":"Cal AI"}}
+{"timestamp":"2026-09-09T06:56:56.726Z","event":"stage_downloading_assets","data":{"hook":"Meet Cal AI - your new favorite!"}}
+{"timestamp":"2026-09-09T06:56:57.006Z","event":"stage_rendering","data":{"duration":8}}
+{"timestamp":"2026-09-09T06:57:02.550Z","event":"stage_verifying_output","data":{"videoUrl":"/api/video/ugc-1788937017012-bjv7bg.mp4","localPath":"C:\\Users\\dogga\\OneDrive\\Desktop\\Desktop\\UGC video generator\\ugc-video-generator\\public\\generated-videos\\ugc-1788937017012-bjv7bg.mp4"}}
+{"timestamp":"2026-09-09T06:57:02.554Z","event":"stage_completed","data":{"videoUrl":"/api/video/ugc-1788937017012-bjv7bg.mp4"}}
+{"timestamp":"2026-09-09T06:59:01.366Z","event":"stage_extracting_product","data":{"url":"https://linear.app"}}
+{"timestamp":"2026-09-09T06:59:04.943Z","event":"stage_organizing_assets","data":{"productTitle":"Linear – The system for product development"}}
+{"timestamp":"2026-09-09T06:59:04.947Z","event":"stage_downloading_assets","data":{"hook":"Meet Linear – The system for product development - your new favorite!"}}
+{"timestamp":"2026-09-09T06:59:11.302Z","event":"stage_rendering","data":{"duration":8}}
+{"timestamp":"2026-09-09T06:59:14.327Z","event":"stage_verifying_output","data":{"videoUrl":"/api/video/ugc-1788937151306-vz069f.mp4","localPath":"C:\\Users\\dogga\\OneDrive\\Desktop\\Desktop\\UGC video generator\\ugc-video-generator\\public\\generated-videos\\ugc-1788937151306-vz069f.mp4"}}
+{"timestamp":"2026-09-09T06:59:14.329Z","event":"stage_completed","data":{"videoUrl":"/api/video/ugc-1788937151306-vz069f.mp4"}}
