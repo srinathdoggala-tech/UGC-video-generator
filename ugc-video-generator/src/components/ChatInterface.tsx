@@ -329,9 +329,9 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
             </button>
           </div>
 
-          <div className="flex items-center justify-between mt-2 px-1 text-[11px] text-neutral-400 dark:text-neutral-500">
-            <span>Press <kbd className="font-mono bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 rounded text-[10px] border border-neutral-200 dark:border-neutral-700">↵ Enter</kbd> to submit</span>
-            <span className="hidden sm:inline">4-layer UGC composition • 9:16 vertical</span>
+          <div className="flex items-center justify-between mt-1.5 px-1 text-[11px] text-neutral-400 dark:text-neutral-500">
+            <span className="hidden sm:inline">Press <kbd className="font-mono bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 rounded text-[10px] border border-neutral-200 dark:border-neutral-700">↵ Enter</kbd> to submit</span>
+            <span className="text-[10.5px] sm:text-[11px] mx-auto sm:mx-0">4-layer UGC composition • 9:16 vertical</span>
           </div>
         </form>
       </footer>
