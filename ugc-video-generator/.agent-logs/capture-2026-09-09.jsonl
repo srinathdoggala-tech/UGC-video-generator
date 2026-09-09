@@ -7,3 +7,16 @@
 {"timestamp":"2026-09-09T05:21:41.080Z","event":"stage_rendering","data":{"duration":8}}
 {"timestamp":"2026-09-09T05:21:55.598Z","event":"stage_verifying_output","data":{"videoUrl":"/api/video/ugc-1788931301091-l8o8x5.mp4","localPath":"C:\\Users\\dogga\\OneDrive\\Desktop\\Desktop\\UGC video generator\\ugc-video-generator\\public\\generated-videos\\ugc-1788931301091-l8o8x5.mp4"}}
 {"timestamp":"2026-09-09T05:21:55.605Z","event":"stage_completed","data":{"videoUrl":"/api/video/ugc-1788931301091-l8o8x5.mp4"}}
+{"timestamp":"2026-09-09T05:30:38.057Z","event":"chat_error","data":{"error":"Expected property name or '}' in JSON at position 1 (line 1 column 2)"}}
+{"timestamp":"2026-09-09T05:30:50.154Z","event":"stage_extracting_product","data":{"url":"https://resend.com"}}
+{"timestamp":"2026-09-09T05:30:50.833Z","event":"stage_organizing_assets","data":{"productTitle":"Resend · Email for developers"}}
+{"timestamp":"2026-09-09T05:30:50.838Z","event":"stage_downloading_assets","data":{"hook":"Meet Resend · Email for developers - your new favorite!"}}
+{"timestamp":"2026-09-09T05:30:52.365Z","event":"stage_rendering","data":{"duration":8}}
+{"timestamp":"2026-09-09T05:30:58.399Z","event":"stage_verifying_output","data":{"videoUrl":"/api/video/ugc-1788931852372-4vn872.mp4","localPath":"C:\\Users\\dogga\\OneDrive\\Desktop\\Desktop\\UGC video generator\\ugc-video-generator\\public\\generated-videos\\ugc-1788931852372-4vn872.mp4"}}
+{"timestamp":"2026-09-09T05:30:58.402Z","event":"stage_completed","data":{"videoUrl":"/api/video/ugc-1788931852372-4vn872.mp4"}}
+{"timestamp":"2026-09-09T05:31:38.623Z","event":"stage_extracting_product","data":{"url":"https://resend.com"}}
+{"timestamp":"2026-09-09T05:31:41.158Z","event":"stage_organizing_assets","data":{"productTitle":"Resend · Email for developers"}}
+{"timestamp":"2026-09-09T05:31:41.307Z","event":"stage_downloading_assets","data":{"hook":"Meet Resend · Email for developers - your new favorite!"}}
+{"timestamp":"2026-09-09T05:31:43.215Z","event":"stage_rendering","data":{"duration":8}}
+{"timestamp":"2026-09-09T05:31:57.178Z","event":"stage_verifying_output","data":{"videoUrl":"/api/video/ugc-1788931903604-qp0k10.mp4","localPath":"C:\\Users\\dogga\\OneDrive\\Desktop\\Desktop\\UGC video generator\\ugc-video-generator\\public\\generated-videos\\ugc-1788931903604-qp0k10.mp4"}}
+{"timestamp":"2026-09-09T05:31:57.211Z","event":"stage_completed","data":{"videoUrl":"/api/video/ugc-1788931903604-qp0k10.mp4"}}

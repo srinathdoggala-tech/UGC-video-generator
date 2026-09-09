@@ -25,7 +25,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
     if (!isLoading) return;
     setLoadingStage('Extracting product details…');
     const t1 = setTimeout(() => setLoadingStage('Selecting matched assets and audio…'), 3000);
-    const t2 = setTimeout(() => setLoadingStage('Composing 4-layer 9:16 video…'), 7000);
+    const t2 = setTimeout(() => setLoadingStage('Composing 9:16 video layers…'), 7000);
     const t3 = setTimeout(() => setLoadingStage('Finalizing render…'), 12000);
 
     return () => {
@@ -52,7 +52,6 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
     setError(null);
     setInput('');
 
-    // Reset textarea height
     if (inputRef.current) {
       inputRef.current.style.height = 'auto';
     }
@@ -107,13 +106,6 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
     }
   };
 
-  const handleReset = () => {
-    if (confirm('Clear conversation and start fresh?')) {
-      setMessages([]);
-      setError(null);
-    }
-  };
-
   // Format text containing links into clickable spans
   const renderMessageContent = (text: string) => {
     const urlPattern = /(https?:\/\/[^\s]+)/g;
@@ -139,7 +131,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
 
   return (
     <div className="flex flex-col h-full w-full bg-white dark:bg-[#121214] sm:rounded-3xl sm:border border-neutral-200/80 dark:border-neutral-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] overflow-hidden">
-      {/* Header */}
+      {/* Header — Understated brand identity */}
       <header className="px-5 sm:px-6 py-3.5 border-b border-neutral-200/70 dark:border-neutral-800/80 bg-white/90 dark:bg-[#121214]/90 backdrop-blur-md flex items-center justify-between z-10">
         <div className="flex items-center gap-3">
           <div className="w-7 h-7 rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 flex items-center justify-center flex-shrink-0 shadow-xs">
@@ -148,26 +140,10 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
               <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
             </svg>
           </div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-[14px] font-semibold text-neutral-900 dark:text-neutral-100 tracking-tight">
-              UGC Video Generator
-            </h1>
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 border border-neutral-200/60 dark:border-neutral-700/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
-              Ready
-            </span>
-          </div>
+          <h1 className="text-[14px] font-semibold text-neutral-900 dark:text-neutral-100 tracking-tight">
+            UGC Video Generator
+          </h1>
         </div>
-
-        {messages.length > 0 && (
-          <button
-            onClick={handleReset}
-            className="text-[12px] font-medium text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 px-2.5 py-1 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-            title="Start new conversation"
-          >
-            New chat
-          </button>
-        )}
       </header>
 
       {/* Chat Area */}
@@ -187,7 +163,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
             </h2>
 
             <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed mt-2">
-              Paste any product link. We extract core features, structure high-retention marketing hooks, and render a ready-to-post 9:16 video.
+              Paste a product link. The engine extracts features, arranges hooks, and renders a ready-to-post 9:16 video.
             </p>
 
             {/* Subtle Example Shortcuts */}
@@ -227,7 +203,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                   {renderMessageContent(message.content)}
                 </p>
 
-                {/* Hero Video Deliverable */}
+                {/* Hero Video Deliverable with Clear Download Hierarchy */}
                 {message.videoUrl && (
                   <div className="mt-4 pt-4 border-t border-neutral-200/60 dark:border-neutral-700/60 flex flex-col items-center">
                     <div className="w-full max-w-[280px] aspect-[9/16] rounded-xl overflow-hidden bg-black shadow-md border border-neutral-200/80 dark:border-neutral-700/80 relative">
@@ -240,25 +216,20 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                       />
                     </div>
 
-                    <div className="w-full max-w-[280px] mt-3 flex items-center justify-between text-xs">
-                      <span className="text-[11px] font-medium text-neutral-500 dark:text-neutral-400">
-                        9:16 UGC Render
-                      </span>
-                      <a
-                        href={message.videoUrl}
-                        download="ugc-video.mp4"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-medium text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-2"
-                      >
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                          <polyline points="7 10 12 15 17 10" />
-                          <line x1="12" y1="15" x2="12" y2="3" />
-                        </svg>
-                        Download .mp4
-                      </a>
-                    </div>
+                    <a
+                      href={message.videoUrl}
+                      download="ugc-video.mp4"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3.5 inline-flex items-center justify-center gap-1.5 w-full max-w-[280px] py-2 px-4 rounded-xl bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 text-xs font-medium hover:opacity-90 active:scale-98 transition-all shadow-xs"
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      Download Video (.mp4)
+                    </a>
                   </div>
                 )}
               </div>
@@ -302,7 +273,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
         </div>
       )}
 
-      {/* Input Box — Tactile Centerpiece */}
+      {/* Input Box — Centerpiece */}
       <footer className="p-3.5 sm:p-4 border-t border-neutral-200/70 dark:border-neutral-800/80 bg-white/95 dark:bg-[#121214]/95 backdrop-blur-md">
         <form onSubmit={handleSubmit}>
           <div className="relative flex items-end gap-2 bg-neutral-50 dark:bg-[#18181b] border border-neutral-200 dark:border-neutral-750 focus-within:border-neutral-900 dark:focus-within:border-neutral-300 focus-within:ring-1 focus-within:ring-neutral-900/5 dark:focus-within:ring-white/5 rounded-2xl p-1.5 sm:p-2 transition-all shadow-xs">
@@ -311,7 +282,7 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
               value={input}
               onChange={handleTextareaChange}
               onKeyDown={handleKeyDown}
-              placeholder="Paste a product URL or describe a product…"
+              placeholder="Paste a product URL or say hi…"
               className="flex-1 px-2.5 py-1.5 bg-transparent text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 resize-none text-[13.5px] sm:text-sm leading-relaxed focus:outline-none max-h-32 min-h-[38px]"
               rows={1}
               disabled={isLoading}
@@ -327,11 +298,6 @@ export function ChatInterface({ initialMessages = [] }: ChatInterfaceProps) {
                 <polyline points="5 12 12 5 19 12" />
               </svg>
             </button>
-          </div>
-
-          <div className="flex items-center justify-between mt-1.5 px-1 text-[11px] text-neutral-400 dark:text-neutral-500">
-            <span className="hidden sm:inline">Press <kbd className="font-mono bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 rounded text-[10px] border border-neutral-200 dark:border-neutral-700">↵ Enter</kbd> to submit</span>
-            <span className="text-[10.5px] sm:text-[11px] mx-auto sm:mx-0">4-layer UGC composition • 9:16 vertical</span>
           </div>
         </form>
       </footer>
